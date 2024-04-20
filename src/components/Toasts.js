@@ -1,12 +1,32 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
-const Toasts = () => {
+const Toasts = ({message = "Testing", countDown = 7, click= "1"}) => {
+  const [isVisible, setIsVisible] = useState(true)
+  
+  useEffect(() => {
+    const timer = setTimeout(()=>{
+      setIsVisible(false)
+    },countDown*1000)
+
+    return () => { clearTimeout(timer) }
+
+  },[isVisible])
+
+  const handleMouseOver = () => {
+    setIsVisible(true);
+  };
+
+  const handleClose = () => {
+    setIsVisible(false);
+  };
+
   return (
-    <div className=' absolute bottom-3 right-2/4 translate-x-2/4'>
-        <div className="bg-green-400 flex w-auto justify-around round-sm p-2 m-2 gap-6">
-            <h1 className="">Testing: 6</h1>
-            <button className="hover:bg-zinc-50 rounded-full">❌</button>
-        </div>
+    <div key={click} className={isVisible?"bg-green-400 flex justify-around round-sm p-2 m-2 gap-6 w-40": "round-sm p-2 m-2 gap-6 w-40 hidden"}>
+      <h1 onMouseOver={handleMouseOver}
+      >{message} : {click}</h1>
+      <button className="hover:bg-zinc-50 rounded-full"
+              onClick={handleClose}
+      >❌</button>
     </div>
   )
 }

@@ -10,13 +10,16 @@ const CountriesData = ({countries}) => {
     const currentCountries = countries.slice(startIndex, endIndex)
 
   return countries==0? <h1>Data Fetching.....</h1> : (
-        <div className="">
-            <ul>
+        <div className= "w-96">
+            <div className="flex justify-center">
+            <ul className='h-56 mt-10 '>
                 {currentCountries.map(country => (
-                    <li key={country?.country_id}>{country.country_name}</li>
+                    <li className='' key={country?.country_id}>{country.country_name}</li>
                 ))}
             </ul>
-            <div className="m-2">
+            </div>
+
+            <div className="flex justify-center">
                 <button
                     className='p-2 w-28 mx-2 bg-blue-400'
                     onClick={()=> setCurrentPage(prePage => Math.max(prePage-1, 1))}

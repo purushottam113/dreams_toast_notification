@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import CountriesData from './CountriesData';
+import { countriesAPILink} from '../utils/constant';
 
 const Component3 = () => {
     const [seconds, setSeconds] = useState("");
@@ -22,7 +23,7 @@ const Component3 = () => {
     };
     
     const countriesAPI = async () => {
-        const data = await fetch("https://api.knowmee.co/api/v1/master/get-country-list");
+        const data = await fetch(countriesAPILink);
         const json = await data.json();
         setCountries(json?.responseData);
     }
