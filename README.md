@@ -1,11 +1,11 @@
 
 React Js Internship Assignment (Career Dreams International)
 
+Live on: https://main--dreams-assignment.netlify.app
+
 ------------------------ Assignment----------------------------------------------
 
 Create a Mini Toast Notification Library using vanilla React.js. 
-
-Reference Website: https://unthread-logic-assignment.netlify.app
 
 Layout:
 The main component has a header section, a navigation section, and a
