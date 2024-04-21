@@ -6,7 +6,7 @@ const Toasts = ({message = "Testing", countDown = 7, click= "1"}) => {
   useEffect(() => {
     const timer = setTimeout(()=>{
       setIsVisible(false)
-    },countDown*1000)
+    },[countDown*1000])
 
     return () => { clearTimeout(timer) }
 
